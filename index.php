@@ -1,3 +1,17 @@
+<?php 
+$background_video = "Thd--viGNjk";
+$background_video = "4cFuow_mQLE";
+$background_video = "hjpZtHbJL6Q";
+$background_video = "saAOREPrWBg"; // mass effect
+$background_video = "BvOGy7fDMwY";
+//$background_video = "T7oeXp3zxi4"; // mass effect earth under attack
+//$background_video = "0cd6QeFyCUE"; // final destination
+//$background_video = "FuaL9FR_t4o"; // unreal 4
+
+$enable_video = false;
+
+?>
+
 <html>
 <head>
 	<!-- Global Style for layout and what-not -->
@@ -12,7 +26,100 @@
 	<link href="https://fonts.googleapis.com/css?family=Orbitron" rel="stylesheet">
 </head>
 
-<body style="background-image: url('library/img/background.jpg'); filter:brightness(200%); margin: 0px; padding: 0px;">
+<body style="background-image: url('http://3.bp.blogspot.com/-mh8KyKezR8I/UWb0Uc_KudI/AAAAAAAABzE/fU23X27yIes/s1600/10.+Eagle+Wallpaper.png'); background-repeat:no-repeat; background-size:cover; filter:brightness(200%); margin: 0px; padding: 0px;">
+
+<div class="pattern" style="position:fixed; top: 0px; left: 0px; height: 100%; width: 100%;"></div>
+
+
+<?php
+if($enable_video)
+{
+?>
+<style>
+.pattern { position:relative; width:636px; height:358px; text-align:center; color:#fff;}
+.pattern:after { content:""; width:100%; height:100%; position:absolute; top:0; left:0; z-index:0;}
+.pattern > div { position:relative; z-index:1;}
+.pattern:after{ background:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAIAAAACCAYAAABytg0kAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAABhJREFUeNpiYGBgePz//38GRhABAgABBgBFTAbfCBNE2AAAAABJRU5ErkJggg==); /*background:url(images/pattern.png);*/}
+* { box-sizing: border-box; }
+.video-background {
+  background: #000;
+  position: fixed;
+  top: 0; right: 0; bottom: 0; left: 0;
+  z-index: -99;
+}
+.video-foreground,
+.video-background iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+#vidtop-content {
+	top: 0;
+	color: #fff;
+}
+.vid-info { position: absolute; top: 0; right: 0; width: 33%; background: rgba(0,0,0,0.3); color: #fff; padding: 1rem; font-family: Avenir, Helvetica, sans-serif; }
+.vid-info h1 { font-size: 2rem; font-weight: 700; margin-top: 0; line-height: 1.2; }
+.vid-info a { display: block; color: #fff; text-decoration: none; background: rgba(0,0,0,0.5); transition: .6s background; border-bottom: none; margin: 1rem auto; text-align: center; }
+@media (min-aspect-ratio: 16/9) {
+  .video-foreground { height: 300%; top: -100%; }
+}
+@media (max-aspect-ratio: 16/9) {
+  .video-foreground { width: 300%; left: -100%; }
+}
+@media all and (max-width: 600px) {
+.vid-info { width: 50%; padding: .5rem; }
+.vid-info h1 { margin-bottom: .2rem; }
+}
+@media all and (max-width: 500px) {
+.vid-info .acronym { display: none; }
+}
+</style>
+
+<div class="video-background">
+    <div class="video-foreground">
+		<div id="muteYouTubeVideoPlayer"></div>
+		  </div>
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+
+    <script async src="https://www.youtube.com/iframe_api"></script>
+    <script>
+      function onYouTubeIframeAPIReady() {
+        var player;
+        player = new YT.Player('muteYouTubeVideoPlayer', {
+          videoId: '<?php echo $background_video;?>', // YouTube Video ID
+          width: 560,             // Player width (in px)
+          height: 316,            // Player height (in px)
+          playerVars: {
+            autoplay: 1,        // Auto-play the video on load
+            controls: 1,        // Show pause/play buttons in player
+            showinfo: 1,        // Hide the video title
+            modestbranding: 1,  // Hide the Youtube Logo
+            loop: 0,            // Run the video in a loop
+            fs: 0,              // Hide the full screen button
+            cc_load_policty: 0, // Hide closed captions
+            iv_load_policy: 3,  // Hide the Video Annotations
+            autohide: 0         // Hide video controls when playing
+          },
+          events: {
+            onReady: function(e) {
+              e.target.mute();
+            }
+          }
+        });
+      }
+    </script>
+	
+<?php
+}
+?>
+
+
+
 	<div id="frame_top">
 	
 	</div>
@@ -44,6 +151,7 @@
 			<div id="vcs_glow_5"></div>
 			<div id="vcs_glow_6"></div>
 			<div id="vcs_glow_7"></div>
+			<div id="" style="position: absolute; top: 115px; left: -22px; font-family: 'Orbitron', sans-serif; height: 20px; width: 140px; color: #fff;  -ms-transform: rotate(90deg); -webkit-transform: rotate(90deg); transform: rotate(90deg); font-size: 11px; letter-spacing: 1.5px;"> VCS6.0 - v2.18</div>
 		</div>
 		<div style="position: relative; width: 100px; height: calc(100% - 400px); border: 0px solid red; box-sizing: border-box;">
 			<div style="float: left; margin-left: 15px; width: 30px; height: 100%; background: rgba(85, 85, 85, 0.5);"></div>
